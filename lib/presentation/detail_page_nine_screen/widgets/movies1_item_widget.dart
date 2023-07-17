@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:phoenix/core/app_export.dart';
+
+// ignore: must_be_immutable
+class Movies1ItemWidget extends StatelessWidget {
+  Movies1ItemWidget({this.onTapMoviecard});
+
+  VoidCallback? onTapMoviecard;
+
+  @override
+  Widget build(BuildContext context) {
+    return IntrinsicWidth(
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: GestureDetector(
+          onTap: () {
+            onTapMoviecard?.call();
+          },
+          child: Padding(
+            padding: getPadding(
+              right: 16,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgThumbnailimage143x9013,
+                  height: getVerticalSize(
+                    190,
+                  ),
+                  width: getHorizontalSize(
+                    120,
+                  ),
+                  radius: BorderRadius.circular(
+                    getHorizontalSize(
+                      2,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: getPadding(
+                    top: 4,
+                  ),
+                  child: Text(
+                    "",
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtRobotoRegular12WhiteA700a9.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.4,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: getHorizontalSize(
+                    117,
+                  ),
+                  margin: getMargin(
+                    top: 2,
+                  ),
+                  child: Text(
+                    "",
+                    maxLines: null,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtRobotoRegular12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
